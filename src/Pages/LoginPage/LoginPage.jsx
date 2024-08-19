@@ -10,19 +10,19 @@ function LoginPage() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('/api/login', {
-                email,
-                password,
-            });
-            console.log('Login successful:', response.data);
+            const response = await axios.post('/api/login', { email, password });
+            const token = response.data.token;
+            localStorage.setItem('authToken', token);
             setError('');
             setShowError(false);
+            window.location.href = '/tasks'; 
         } catch (error) {
             console.error('Error during login:', error);
             setError('Ocorreu um erro durante o login. Por favor, verifique suas credenciais e tente novamente.');
             setShowError(true);
         }
     };
+    
 
     return (
         <MDBContainer fluid className="d-flex flex-column justify-content-center align-items-center p-3 h-custom" style={{ minHeight: '100vh' }}>
