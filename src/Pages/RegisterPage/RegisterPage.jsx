@@ -23,24 +23,20 @@ function RegisterPage() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
     try {
-      const response = await axios.post('/api/register', {
-        firstName,
-        lastName,
-        email,
-        password,
-      });
-      console.log('Registration successful:', response.data);
-      setError('');
-      setShowError(false);
-      // Redirecionar ou exibir mensagem de sucesso
+        const response = await axios.post('/api/register', { firstName, lastName, email, password });
+        const token = response.data.token;
+        localStorage.setItem('authToken', token); 
+        setError('');
+        setShowError(false);
+        window.location.href = '/tasks';
     } catch (error) {
-      console.error('Error during registration:', error);
-      setError('Ocorreu um erro durante o registro. Por favor, tente novamente.');
-      setShowError(true);
+        console.error('Error during registration:', error);
+        setError('Ocorreu um erro durante o registro. Por favor, tente novamente.');
+        setShowError(true);
     }
-  };
+};
+
 
   return (
     <MDBContainer fluid className='d-flex justify-content-center align-items-center vh-100 p-4'>
