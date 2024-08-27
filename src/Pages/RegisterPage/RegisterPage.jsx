@@ -17,19 +17,19 @@ function RegisterPage() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [PasswordHash, setPasswordHash] = useState('');
   const [error, setError] = useState('');
   const [showError, setShowError] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-        const response = await axios.post('/api/register', { firstName, lastName, email, password });
+        const response = await axios.post('https://localhost:7099/api/User/register', { firstName, lastName, email, PasswordHash });
         const token = response.data.token;
         localStorage.setItem('authToken', token); 
         setError('');
         setShowError(false);
-        window.location.href = '/tasks';
+        window.location.href = 'https://localhost:3000/';
     } catch (error) {
         console.error('Error during registration:', error);
         setError('Ocorreu um erro durante o registro. Por favor, tente novamente.');
@@ -92,11 +92,11 @@ function RegisterPage() {
                 />
                 <MDBInput
                   wrapperClass='mb-4'
-                  label='Password'
-                  id='password'
-                  type='password'
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  label='PasswordHash'
+                  id='PasswordHash'
+                  type='PasswordHash'
+                  value={PasswordHash}
+                  onChange={(e) => setPasswordHash(e.target.value)}
                 />
 
 
