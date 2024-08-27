@@ -3,19 +3,19 @@ import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBInput, MDBCard, MDBCardBody } 
 import axios from 'axios';
 
 function LoginPage() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showError, setShowError] = useState(false);
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('/api/login', { email, password });
+            const response = await axios.post('https://localhost:7099/api/User/login', { Email, Password });
             const token = response.data.token;
             localStorage.setItem('authToken', token);
             setError('');
             setShowError(false);
-            window.location.href = '/tasks'; 
+            window.location.href = 'https://localhost:3000/home';
         } catch (error) {
             console.error('Error during login:', error);
             setError('Ocorreu um erro durante o login. Por favor, verifique suas credenciais e tente novamente.');
@@ -42,7 +42,7 @@ function LoginPage() {
                                     id='formControlLg'
                                     type='email'
                                     size="md"
-                                    value={email}
+                                    value={Email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                                 <MDBInput
@@ -51,7 +51,7 @@ function LoginPage() {
                                     id='formControlLg'
                                     type='password'
                                     size="md"
-                                    value={password}
+                                    value={Password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
                                 <MDBBtn className="mb-0 px-5" size='lg' onClick={handleLogin}>Login</MDBBtn>
