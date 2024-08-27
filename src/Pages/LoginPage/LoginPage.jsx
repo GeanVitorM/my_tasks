@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './login.css';
+import loginImage from '../../Images/Ecommerce checkout laptop-rafiki.png';
 import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBInput, MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
 import axios from 'axios';
 
@@ -22,14 +24,12 @@ function LoginPage() {
             setShowError(true);
         }
     };
-    
 
     return (
         <MDBContainer fluid className="d-flex flex-column justify-content-center align-items-center p-3 h-custom" style={{ minHeight: '100vh' }}>
-
             <MDBRow className="w-100 d-flex justify-content-center align-items-center">
                 <MDBCol md='6' className="d-none d-md-flex justify-content-center align-items-center">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="img-fluid" alt="Sample image" />
+                    <img src={loginImage} className="img-fluid w-60" alt="Sample image" />
                 </MDBCol>
 
                 <MDBCol md='6' className="d-flex justify-content-center">

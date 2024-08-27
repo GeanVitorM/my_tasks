@@ -43,8 +43,8 @@ function RegisterPage() {
       <MDBRow className='w-100'>
         <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
           <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-            Nos Te ajudamos a <br />
-            <span className="text-primary">Se Organizar!</span>
+           Venha vestir sua familia<br />
+            <span className="text-primary">Na loja de vestuario mais completa!</span>
           </h1>
           <p className='px-3' style={{color: 'hsl(217, 10%, 50.8%)'}}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -98,19 +98,17 @@ function RegisterPage() {
                   value={PasswordHash}
                   onChange={(e) => setPasswordHash(e.target.value)}
                 />
-
-
                 <MDBBtn className='w-100 mb-4' size='md' type='submit'>Sign Up</MDBBtn>
 
                 <div className="text-center">
                   <p>or sign up with:</p>
-                  <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
+                  <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#3641B7' }}>
                     <MDBIcon fab icon='facebook-f' size="sm"/>
                   </MDBBtn>
-                  <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
+                  <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#3641B7' }}>
                     <MDBIcon fab icon='twitter' size="sm"/>
                   </MDBBtn>
-                  <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
+                  <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#3641B7' }}>
                     <MDBIcon fab icon='google' size="sm"/>
                   </MDBBtn>
                   <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
